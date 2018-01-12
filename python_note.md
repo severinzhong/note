@@ -142,6 +142,8 @@
 
 ## 科学计算
 
+基本模块包含`numpy,scipy,matplotlib`
+
 ### 矩阵计算numpy
 
 一般使用`import numpy as np`来使用
@@ -193,6 +195,11 @@
     np.sqrt(A)
     np.add(A,B)
     a = np.fromfunction(func,(5,4))
+    np.trace(a)  ## a的迹
+    np.linalg.det(a)  ## a的行列式的值
+    np.linalg.rank(a)  ## a的秩
+    np.linalg.eig(a)  ## a的本征值
+    np.linalg.svd(a)  ## a的奇异值分解
 
     a[1,2,...] ## = a[1,2,:,:,:]
     for row in b :
@@ -213,8 +220,81 @@
     c = a.view() ## c.base is a , c not is a
     d = a.copy()
 
+随机模块
+
+    import numpy.random as random
+    random.seed(42)
+    random.rand(1,3)
+    random.random((3,3))  ## [0,1)
+    random.uniform(1,6,10)  ## 10 numbers from [1,6)
+    random.randint(1,6,10)
+    random.normal(size=(5,2))  ## 2*5的正态分布
+    random.binomial(n=5,p=0.5,size=5)  ## 5个二项式分布
+    
+
 ### 绘图matplotlib
+>`from matplotlib import pyplot as plt`来使用库函数
 
+>一张图（figure）包含一个画板（axes），包含一套坐标系（axis）和一些注释
 
+下面是一张图的示例：
+
+    x = np.linespace(0,2,100)
+    plt.plot(x,x,label='liner')  
+    # x.shape : (1000,1)is right,(1,1000) is wrong
+    plt.plot(x,x**2,label='quadratic')
+    plt.xlabel('x label')
+    plt.ylabel('y label')
+    plt.title('simple plot')
+    plt.legend()  ##图例
+    plt.show()
+
+>`plot`的调控参数有颜色`r,b,g,...`, 线的形状`-,--,...`, 点的形状`o,*,s,^,...` ,例如`'bs','r--'`
+
+下面是绘制点分布图
+
+    data = { 'a':np.arange(50)
+             'c':np.random.randit(0,50,50),
+             'd':np.random.randn(50)
+    }
+    data['b'] = data['a'] + 10*np.random.randn(50)
+    data['d'] = np.abs(data['d']) * 100
+
+    plt.scatter('a','b','c'=c,s='d',data=data)
+    plt.show()
+
+制作一张直方图
+
+    mu, sigma = 100, 15
+    x = mu + sigma* np.random.randn(100000)
+    n,bins,patches = plt.hist(x,50,normed=1,facecolor='g',alpha=0.75)
+    plt.text(60,0.025,r'$\mu=100,\\sigma=15$')
+    plt.axis([40,160,0,0.03])
+    plt.grid(True)
+    plt.show()
+
+一些控制和操作
+ 
+    #子图绘制
+    fig, (ax1,ax2) = plt.subplots(1,2)
+    ax1.plot(x1,y1)
+    ax2.plot(x2,y2)
+    plt.show()
+
+    plt.figure(1)
+    plt.subplot(221)
+    #do sth
+    plt.subplot(222)
+    #do sth
+    plt.subplot(223)
+    #do sth
+    plt.subplot(224)
+    #do sth
+    plt.gca().yaxis.set_minor_formatter(NullFormatter())
+    plt.subplots_adjust(top=0.92,buttom=0.08,left=0.10,right=0.95,hspace=0.25,wspace=0.35)
+    plt.show()
+
+***
+参考[matplotlib.org](https://matplotlib.org)
 
 
