@@ -47,7 +47,7 @@
     for iter,value in enumerate(list):
         code
 
-    ## isinstance(obj,Iterable) 判断obj是否可以迭代
+    ## isinstance(obj,Iterable) 判断obj是否可以迭代
     for key,value in dict:  
         code
 
@@ -72,7 +72,7 @@
         return sth
 
 ## 标准输入输出
-    (x ,y ) = map(int , input.split())
+    (x ,y ) = map(int , input.split())
     print(x+y,end="") ##end="" 表示不换行
 
 ## 文件输入输出
@@ -128,7 +128,7 @@
     re.search() ##找到第一个匹配的子串
     re.split(pattern)
     re.sub() ## 找到所有匹配的字串并用另一个字符串代替，subn会返回字符串同时返回替换的数量
-    m.group(i) ##0为原始串，1，2，3为括号分组 
+    m.group(i) ##0为原始串，1，2，3为括号分组 
     m.start() ##返回匹配的开始位置
     m.end() ##返回匹配的结束位置
     m.span() ##返回开始和结束的位置
@@ -213,7 +213,7 @@
     c = a.view() ## c.base is a , c not is a
     d = a.copy()
 
-### 绘图matplotlib
+### 绘图matplotlib
 
 
 
