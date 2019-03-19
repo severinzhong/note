@@ -89,7 +89,6 @@
     git tag -d tag_name %删除本地
     git push origin :refs/tags/tag_name  %删除远程
 
-test for git
  
 
 
