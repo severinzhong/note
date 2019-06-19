@@ -47,6 +47,12 @@
 
     git clone git@github.com:user_name/rep_name.git
 
+克隆一个私有的github项目
+
+```
+git clone https://github-username:github-password@github.com/github-username/github-template-name.git
+```
+
 查看远程库的信息
 
     git remote % -v 查看更多
@@ -90,6 +96,7 @@
     git push origin :refs/tags/tag_name  %删除远程
 
  
+
 
 
 ---
