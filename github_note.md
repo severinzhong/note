@@ -34,6 +34,12 @@
 将已经删除的文件从git中移除
 
     git rm filename
+    
+将文件移除版本控制（实际存在在本地）
+
+    git rm --cached file_path
+    git commit -m 'delete remote somefile'
+    git push
 
 ## 上传和克隆
 
